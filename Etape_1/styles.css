@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(221, 221, 215); 
+    font-family: sans-serif;
+}
+
+.cadre {
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    width: 250px;
+    height: 30px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.connexion {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+}
+
+.connexion button {
+    width: 100%;
+    background-color: rgb(10, 11, 68); 
+    color: white;
+}
