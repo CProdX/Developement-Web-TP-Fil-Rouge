@@ -7,16 +7,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <h1>Bienvenu dans dark !</h1>
+    </header>
     <div class="cadre">
         <form action="dashboard.html">
             <div>
                 <label for="login">Nom d'utilisateur :</label>
-                <input type="text" id="login" name="login" placeholder="Adresse e-mail (nom@exemple.fr)">   
+                <input type="email" id="login" name="login" placeholder="Adresse e-mail (nom@exemple.fr)">   
             </div>
             <br>
             <div>
                 <label for="password">Mot de passe :</label>
                 <input type="password" id="password" name="password" placeholder="Mot de passe">
+            </div><br>
+
+            <div class="checkbox">
+                <input type="checkbox" id="remember">
+                <label for="remember">Garder ma session ouverte</label>
             </div>
 
             <a href="dashboard.html">
