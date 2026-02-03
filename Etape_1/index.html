@@ -1,42 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page de connexion</title>
+    <title>Connexion - ESIEA Ticketing</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Bienvenu dans dark !</h1>
+        <div class="conteneur-header">
+            <h1>ESIEA TICKETING</h1>
+            <nav><a href="index.html" aria-current="page">Connexion</a></nav>
+        </div>
     </header>
-    <div class="cadre">
-        <form action="dashboard.html">
-            <div>
-                <label for="login">Nom d'utilisateur :</label>
-                <input type="email" id="login" name="login" placeholder="Adresse e-mail (nom@exemple.fr)">   
-            </div>
-            <br>
-            <div>
-                <label for="password">Mot de passe :</label>
-                <input type="password" id="password" name="password" placeholder="Mot de passe">
-            </div><br>
-
-            <div class="checkbox">
-                <input type="checkbox" id="remember">
-                <label for="remember">Garder ma session ouverte</label>
-            </div>
-
-            <a href="dashboard.html">
-                <div style="text-decoration: underline;">
-                    <p>Mot de passe oublié ?</p>
+    <main class="centrer-flex">
+        <div class="cadre largeur-login">
+            <h2 class="titre-formulaire">Identification</h2>
+            <form action="dashboard.html">
+                <div class="champ-formulaire">
+                    <label for="email">Email étudiant</label>
+                    <input type="email" id="email" placeholder="nom@et.esiea.fr" required>
                 </div>
-            </a>
-
-            <div class="connexion">
-                <button type="submit">Je me connecte</button>
-            </div>
-        </form>
-    </div>
+                <div class="champ-formulaire">
+                    <label for="pass">Mot de passe</label>
+                    <input type="password" id="pass" required>
+                </div>
+                <div class="groupe-checkbox">
+                    <input type="checkbox" id="session">
+                    <label for="session">Garder ma session ouverte</label>
+                </div>
+                <button type="submit" class="bouton-large">Se connecter</button>
+            </form>
+        </div>
+    </main>
+    <footer><p>&copy; 2026 Christian-Didier KOUAKOU — ESIEA</p></footer>
 </body>
 </html>
