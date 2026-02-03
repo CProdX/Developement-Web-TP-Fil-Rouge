@@ -1,11 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Dashboard - ESIEA</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <p>Bienvenu dans le dashboard</p>
+    <header>
+        <div class="conteneur-header">
+            <h1>TABLEAU DE BORD</h1>
+            <nav>
+                <a href="dashboard.html" aria-current="page">Dashboard</a>
+                <a href="projects.html">Projets</a>
+                <a href="tickets.html">Tickets</a>
+                <a href="index.html">Déconnexion</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="section-stats">
+            <div class="carte-stat"><h4>Tickets Créés</h4><p>4065</p></div>
+            <div class="carte-stat"><h4>Tickets Résolus</h4><p>3152</p></div>
+            <div class="carte-stat"><h4>En attente</h4><p>913</p></div>
+        </section>
+        
+        <div class="cadre">
+            <h3 class="centrer-contenu">Analyses des Tickets</h3>
+            <div class="conteneur-graphiques">
+                <div class="boite-graphique">
+                    <h4>Répartition par Statut</h4>
+                    <img src="Image2.png" alt="Graphique Statut" class="img-graphique">
+                </div>
+                <div class="boite-graphique">
+                    <h4>Répartition par Priorité</h4>
+                    <img src="Image1.png" alt="Graphique Priorité" class="img-graphique">
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer><p>&copy; 2026 Projet TP FIL ROUGE - Application de Gestion de Ticketing Christian-Didier KOUAKOU | ESIEA</p></footer>
 </body>
 </html>
