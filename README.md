@@ -1,4 +1,4 @@
-# 🏗️ Workspace : Développement Web — TP Fil Rouge
+# 🏗️ Workspace : Développement Web - TP Fil Rouge
 
 Bienvenue dans mon environnement de développement dédié au projet de Ticketing. Ce dépôt suit l'évolution de l'application fil rouge tout au long du semestre.
 
