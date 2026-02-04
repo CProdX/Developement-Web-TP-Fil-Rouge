@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détail Ticket #8825 - ESIEA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="conteneur-header">
+            <h1>DÉTAIL DU TICKET #8825</h1>
+            <nav>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="projects.html">Projets</a>
+                <a href="tickets.html">Tickets</a>
+                <a href="index.html">Déconnexion</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="conteneur-detail">
+            <section class="cadre">
+                <div class="entete-ticket">
+                    <h2>Erreur de connexion GitLab</h2>
+                    <span class="badge priorite-critique">Critique</span>
+                </div>
+                <hr>
+                <div class="info-metier">
+                    <p><strong>Client :</strong> ESIEA Corp</p>
+                    <p><strong>Projet :</strong> TP Fil Rouge (Web)</p>
+                    <p><strong>Type :</strong> <span style="color: #059669;">Facturable</span></p>
+                    <p><strong>Statut :</strong> À valider (Client)</p>
+                </div>
+                <div class="description-ticket">
+                    <h3>Description</h3>
+                    <p>Impossible de cloner le dépôt via SSH depuis le réseau de l'école. Erreur "Permission denied (publickey)".</p>
+                </div>
+                <div class="actions-client">
+                    <button class="bouton-valider">Valider la facturation</button>
+                    <button class="bouton-refuser">Refuser / Contester</button>
+                </div>
+            </section>
+
+            <section class="cadre">
+                <h3>Suivi du Temps</h3>
+                <table class="tableau-liste">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Collaborateur</th>
+                            <th>Durée</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>03/02/2026</td>
+                            <td>C-D. Kouakou</td>
+                            <td>01:30</td>
+                            <td>Diagnostic clé SSH</td>
+                        </tr>
+                        <tr>
+                            <td>03/02/2026</td>
+                            <td>C-D. Kouakou</td>
+                            <td>01:00</td>
+                            <td>Reconfiguration Proxy</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2"><strong>Total Temps Passé</strong></td>
+                            <td colspan="2"><strong>02:30</strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="champ-formulaire" style="margin-top: 20px;">
+                    <label for="ajout-temps">Ajouter du temps (Collaborateur)</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="number" placeholder="Minutes" id="ajout-temps">
+                        <button type="button">Ajouter</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer><p>&copy; 2026 Projet TP FIL ROUGE - Collou Christian-Didier KOUAKOU | ESIEA</p></footer>
+</body>
+</html>
