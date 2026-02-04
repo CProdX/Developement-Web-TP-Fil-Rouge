@@ -19,70 +19,61 @@
     </header>
     <main>
         <div class="cadre">
-
             <div class="barre-filtres">
                 <div class="filtre-groupe">
                     <label for="recherche">Rechercher</label>
                     <input type="text" id="recherche" placeholder="ID ou Sujet...">
                 </div>
-                
-                <div class="filtre-groupe">
-                    <label for="filtre-priorite">Priorité</label>
-                    <select id="filtre-priorite">
-                        <option value="tous">Toutes</option>
-                        <option value="basse">Basse</option>
-                        <option value="moyenne">Moyenne</option>
-                        <option value="haute">Haute</option>
-                        <option value="critique">Critique</option>
-                    </select>
-                </div>
-
-                <div class="filtre-groupe">
-                    <label for="filtre-statut">Statut</label>
-                    <select id="filtre-statut">
-                        <option value="tous">Tous</option>
-                        <option value="ouvert">Ouvert</option>
-                        <option value="en-cours">En cours</option>
-                        <option value="resolu">Résolu</option>
-                        <option value="ferme">Fermé</option>
-                    </select>
-                </div>
-
                 <button type="button" class="bouton-rechercher">Filtrer</button>
             </div>
 
             <table class="tableau-liste">
                 <thead>
-                    <tr><th>ID</th><th>Sujet</th><th>Priorité</th><th>Statut</th><th>Date</th></tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Sujet</th>
+                        <th>Type</th>
+                        <th>Temps</th>
+                        <th>Priorité</th>
+                        <th>Statut</th>
+                        <th>Action</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td>#8825</td><td>Erreur de connexion GitLab</td><td class="priorite-critique">Critique</td><td>Ouvert</td><td>03/02/2026</td></tr>
-                    <tr><td>#8824</td><td>Bug affichage checkbox login</td><td>Moyenne</td><td>Résolu</td><td>03/02/2026</td></tr>
-                    <tr><td>#8821</td><td>Mise à jour driver Aorus 17</td><td>Basse</td><td>Fermé</td><td>01/02/2026</td></tr>
-                    <tr><td>#8818</td><td>Problème SSH ESIEA</td><td class="priorite-haute">Haute</td><td>En cours</td><td>02/02/2026</td></tr>
-                    <tr><td>#8815</td><td>Demande de badge étudiant</td><td>Basse</td><td>Fermé</td><td>29/01/2026</td></tr>
-                    <tr><td>#8812</td><td>Erreur compilation Java TP2</td><td>Moyenne</td><td>Ouvert</td><td>03/02/2026</td></tr>
-                    <tr><td>#8809</td><td>Accès base de données SQL</td><td class="priorite-haute">Haute</td><td>Ouvert</td><td>02/02/2026</td></tr>
-                    <tr><td>#8805</td><td>Problème CSS Dashboard mobile</td><td>Moyenne</td><td>En cours</td><td>01/02/2026</td></tr>
-                    <tr><td>#8802</td><td>Demande logiciel Microsoft</td><td>Basse</td><td>Fermé</td><td>28/01/2026</td></tr>
-                    <tr><td>#8798</td><td>Lenteur réseau bâtiment</td><td class="priorite-critique">Critique</td><td>Ouvert</td><td>03/02/2026</td></tr>
-                    <tr><td>#8795</td><td>MAJ Système exploitation</td><td>Basse</td><td>Fermé</td><td>25/01/2026</td></tr>
-                    <tr><td>#8792</td><td>Questionnaire satisfaction</td><td>Basse</td><td>Fermé</td><td>24/01/2026</td></tr>
-                    <tr><td>#8789</td><td>Bug déconnexion intempestive</td><td class="priorite-haute">Haute</td><td>Ouvert</td><td>03/02/2026</td></tr>
-                    <tr><td>#8786</td><td>Besoin extension écran</td><td>Moyenne</td><td>En cours</td><td>02/02/2026</td></tr>
-                    <tr><td>#8783</td><td>Configuration proxy Linux</td><td>Moyenne</td><td>Ouvert</td><td>03/02/2026</td></tr>
-                    <tr><td>#8780</td><td>Demande de RAM supplémentaire</td><td>Basse</td><td>En cours</td><td>01/02/2026</td></tr>
-                    <tr><td>#8777</td><td>Certificat SSL expiré</td><td class="priorite-critique">Critique</td><td>Résolu</td><td>02/02/2026</td></tr>
-                    <tr><td>#8774</td><td>Installation Docker</td><td>Moyenne</td><td>Fermé</td><td>20/01/2026</td></tr>
-                    <tr><td>#8771</td><td>Problème alimentation PC</td><td class="priorite-haute">Haute</td><td>Ouvert</td><td>03/02/2026</td></tr>
-                    <tr><td>#8768</td><td>Question cours de Web</td><td>Basse</td><td>Résolu</td><td>03/02/2026</td></tr>
-                    <tr><td>#8765</td><td>Accès plateforme E-learning</td><td>Basse</td><td>Fermé</td><td>15/01/2026</td></tr>
-                    <tr><td>#8762</td><td>Bug affichage footer</td><td>Moyenne</td><td>En cours</td><td>03/02/2026</td></tr>
-                    <tr><td>#8759</td><td>Demande de tutorat Java</td><td>Basse</td><td>Ouvert</td><td>03/02/2026</td></tr>
+                    <tr><td>#8825</td><td>Erreur GitLab SSH</td><td>Inclus</td><td>02:30</td><td class="priorite-critique">Critique</td><td>À valider</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8826</td><td>Optimisation SQL Laval</td><td style="color:#059669;">Facturable</td><td>04:15</td><td>Moyenne</td><td>En cours</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8827</td><td>Mise à jour JUnit 5</td><td>Inclus</td><td>01:00</td><td>Basse</td><td>Nouveau</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8828</td><td>Bug responsive Sidebar</td><td>Inclus</td><td>03:45</td><td class="priorite-critique">Critique</td><td>En cours</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8829</td><td>Audit Cyber Lab</td><td style="color:#059669;">Facturable</td><td>12:00</td><td class="priorite-critique">Critique</td><td>En cours</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8830</td><td>Fix CSS Header</td><td>Inclus</td><td>00:45</td><td>Basse</td><td>À valider</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8831</td><td>Script Python TOEIC</td><td style="color:#059669;">Facturable</td><td>06:30</td><td>Moyenne</td><td>À valider</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8832</td><td>Migration Maven</td><td>Inclus</td><td>02:15</td><td>Moyenne</td><td>À valider</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8833</td><td>Sécurité API Rest</td><td style="color:#059669;">Facturable</td><td>08:20</td><td class="priorite-critique">Critique</td><td>À valider</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8834</td><td>Docker Compose Dev</td><td>Inclus</td><td>01:10</td><td>Basse</td><td>À valider</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8835</td><td>Refonte Navbar</td><td>Inclus</td><td>04:00</td><td>Moyenne</td><td>Nouveau</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8836</td><td>Erreur Index SQL</td><td style="color:#059669;">Facturable</td><td>02:50</td><td class="priorite-critique">Critique</td><td>En cours</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8837</td><td>Tests Unitaires UI</td><td>Inclus</td><td>05:15</td><td>Moyenne</td><td>Nouveau</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8838</td><td>Config Proxy ESIEA</td><td>Inclus</td><td>00:55</td><td>Basse</td><td>En cours</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8839</td><td>Patch SSL Cyber</td><td style="color:#059669;">Facturable</td><td>03:30</td><td class="priorite-critique">Critique</td><td>Terminé</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8840</td><td>Footer Mobile Bug</td><td>Inclus</td><td>01:20</td><td>Basse</td><td>Terminé</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8841</td><td>Export CSV Clients</td><td style="color:#059669;">Facturable</td><td>02:10</td><td>Moyenne</td><td>En attente</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8842</td><td>Setup GitLab CI/CD</td><td>Inclus</td><td>07:45</td><td class="priorite-critique">Critique</td><td>En cours</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8843</td><td>Design Login Page</td><td>Inclus</td><td>03:00</td><td>Basse</td><td>Terminé</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8844</td><td>Analyse Logs SQL</td><td style="color:#059669;">Facturable</td><td>04:50</td><td>Moyenne</td><td>En cours</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8845</td><td>Fix Memory Leak Java</td><td>Inclus</td><td>10:15</td><td class="priorite-critique">Critique</td><td>À valider</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8846</td><td>Modale Confirmation</td><td>Inclus</td><td>01:40</td><td>Basse</td><td>Nouveau</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8847</td><td>Recherche full-text</td><td style="color:#059669;">Facturable</td><td>09:00</td><td>Moyenne</td><td>En attente</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8848</td><td>Dark Mode Support</td><td>Inclus</td><td>04:30</td><td>Basse</td><td>Nouveau</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8849</td><td>Nettoyage Base Prod</td><td style="color:#059669;">Facturable</td><td>02:00</td><td class="priorite-critique">Critique</td><td>Terminé</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8850</td><td>Icons Dashboard</td><td>Inclus</td><td>00:50</td><td>Basse</td><td>Terminé</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8851</td><td>Validation Forms JS</td><td>Inclus</td><td>03:20</td><td>Moyenne</td><td>En cours</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8852</td><td>Encryption Mails</td><td style="color:#059669;">Facturable</td><td>05:40</td><td class="priorite-critique">Critique</td><td>Nouveau</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8853</td><td>Traduction Anglais</td><td>Inclus</td><td>06:00</td><td>Basse</td><td>En cours</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8854</td><td>Auto-scaling Cloud</td><td style="color:#059669;">Facturable</td><td>15:30</td><td class="priorite-critique">Critique</td><td>En attente</td><td><a href="ticket-detail.html">Détail</a></td></tr>
                 </tbody>
             </table>
         </div>
     </main>
-    <footer><p>&copy; 2026 Projet TP FIL ROUGE - Application de Gestion de Ticketing Christian-Didier KOUAKOU | ESIEA</p></footer>
+    <footer><p>&copy; 2026 Projet TP FIL ROUGE - Collou Christian-Didier KOUAKOU | ESIEA</p></footer>
 </body>
 </html>
