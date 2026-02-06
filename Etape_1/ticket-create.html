@@ -9,7 +9,10 @@
     <header>
         <div class="conteneur-header">
             <h1>OUVRIR UN TICKET</h1>
-            <nav><a href="tickets.html">Retour aux tickets</a></nav>
+            <nav>
+                <a href="tickets.html">Retour aux tickets</a>
+                <a href="ticket-create.html" aria-current="page">Nouveau Ticket</a>
+            </nav>
         </div>
     </header>
     <main>
@@ -36,8 +39,8 @@
                     <input type="text" id="titre" required>
                 </div>
                 <div class="champ-formulaire">
-                    <label for="desc">Description détaillée</label>
-                    <textarea id="desc" rows="6"></textarea>
+                    <label for="desc-ticket">Description détaillée</label>
+                    <textarea id="desc-ticket" rows="6"></textarea>
                 </div>
                 <button type="submit" class="bouton-large">Soumettre la demande</button>
             </form>

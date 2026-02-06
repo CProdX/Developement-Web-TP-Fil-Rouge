@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project create</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="conteneur-header">
+            <h1>OUVRIR UN PROJET</h1>
+            <nav>
+                <a href="projects.html">Retour aux projets</a>
+                <a href="project-create.html" aria-current="page">Nouveau Projet</a>
+            </nav>
+        </div>
+    </header>
+
+
+
+
+    <main>
+        <div class="cadre largeur-formulaire">
+            <h2 class="titre-formulaire">Nouvelle Demande</h2>
+            <form action="projects.html">
+                <div class="champ-formulaire">
+                    <label for="titre-projet">Titre du projet</label>
+                    <input type="text" id="titre-projet" required>
+                </div>
+
+                <div class="champ-formulaire">
+                    <label for="type-projet">Type de contrat</label>
+                    <select id="type-projet">
+                        <option value="annuel">Annuel</option>
+                        <option value="Trimestriel">Trimestriel</option>
+                        <option value="pontuel">Ponctuel</option>
+                    </select>
+                </div>
+
+                <div class="champ-formulaire">
+                    <label for="client-projet">Nom du client</label>
+                    <input type="text" id="client-projet" required>
+                </div>
+
+                <div class="champ-formulaire">
+                    <label for="responsable-projet">Responsable du client</label>
+                    <input type="text" id="responsable-projet" required>
+                </div>
+
+                <div class="champ-formulaire">
+                    <label for="desc-projet">Description détaillée</label>
+                    <textarea id="desc-projet" rows="6"></textarea>
+                </div>
+
+                
+                
+                <button type="submit" class="bouton-large">Soumettre la demande</button>
+            </form>
+        </div>
+    </main>
+
+
+
+    
+    <footer><p>&copy; 2026 Projet TP FIL ROUGE - Collou Christian-Didier KOUAKOU | ESIEA</p></footer>
+</body>
+</html>
