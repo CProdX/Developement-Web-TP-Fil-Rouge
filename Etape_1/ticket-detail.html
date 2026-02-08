@@ -8,48 +8,58 @@
 <body>
     <header>
         <div class="conteneur-header">
-            <h1>DÉTAIL DU TICKET #8825</h1>
+            <h1>GESTION DU TICKET #8825</h1>
             <nav>
                 <a href="dashboard.html">Dashboard</a>
-                <a href="projects.html">Projets</a>
-                <a href="tickets.html">Tickets</a>
+                <a href="tickets.html">Retour aux tickets</a>
                 <a href="index.html">Déconnexion</a>
             </nav>
         </div>
     </header>
+
     <main>
         <div class="conteneur-detail">
+            <!-- 1. En-tête et Métadonnées : Identifiants clés du ticket [2] -->
             <section class="cadre">
-                <div class="entete-ticket">
-                    <h2>Erreur de connexion GitLab</h2>
-                    <span class="badge priorite-critique">Critique</span>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 style="margin: 0;">Erreur GitLab SSH</h2>
+                    <span class="badge priorite-critique">Priorité : Critique</span>
                 </div>
-                <hr>
+                
                 <div class="info-metier">
-                    <p><strong>Client :</strong> ESIEA Corp</p>
-                    <p><strong>Projet :</strong> TP Fil Rouge (Web)</p>
-                    <p><strong>Type :</strong> <span style="color: #059669;">Facturable</span></p>
-                    <p><strong>Statut :</strong> À valider (Client)</p>
-                </div>
-                <div class="description-ticket">
-                    <h3>Description</h3>
-                    <p>Impossible de cloner le dépôt via SSH depuis le réseau de l'école. Erreur "Permission denied (publickey)".</p>
-                </div>
-                <div class="actions-client">
-                    <button class="bouton-valider">Valider la facturation</button>
-                    <button class="bouton-refuser">Refuser / Contester</button>
+                    <div>
+                        <p><strong>Projet :</strong> TP Fil Rouge (Web)</p>
+                        <p><strong>Client :</strong> ESIEA Corp</p>
+                    </div>
+                    <div>
+                        <p><strong>Type :</strong> <span style="color: #dc2626;">Facturable (Hors contrat)</span></p>
+                        <p><strong>Statut :</strong> À valider (Client)</p>
+                    </div>
+                    <div>
+                        <p><strong>Temps Total :</strong> 02:30</p>
+                        <p><strong>Créé le :</strong> 01/02/2026</p>
+                    </div>
                 </div>
             </section>
 
+            <!-- 2. Description détaillée [2] -->
             <section class="cadre">
-                <h3>Suivi du Temps</h3>
+                <h3>Description de la demande</h3>
+                <p>Impossible de cloner le dépôt via SSH depuis le réseau interne. L'erreur retournée est "Permission denied (publickey)". Le collaborateur doit vérifier la configuration du proxy et la validité des clés SSH sur le serveur GitLab.</p>
+                <hr>
+                <p><strong>Collaborateurs assignés :</strong> Christian-Didier KOUAKOU, A. Nollet</p>
+            </section>
+
+            <!-- 3. Suivi du Temps : Historique des entrées [3] -->
+            <section class="cadre">
+                <h3>Historique des interventions</h3>
                 <table class="tableau-liste">
                     <thead>
                         <tr>
                             <th>Date</th>
                             <th>Collaborateur</th>
                             <th>Durée</th>
-                            <th>Note</th>
+                            <th>Commentaire</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,32 +67,42 @@
                             <td>03/02/2026</td>
                             <td>C-D. Kouakou</td>
                             <td>01:30</td>
-                            <td>Diagnostic clé SSH</td>
+                            <td>Diagnostic initial et test des clés SSH locales.</td>
                         </tr>
                         <tr>
                             <td>03/02/2026</td>
                             <td>C-D. Kouakou</td>
                             <td>01:00</td>
-                            <td>Reconfiguration Proxy</td>
+                            <td>Reconfiguration des variables d'environnement du Proxy.</td>
                         </tr>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="2"><strong>Total Temps Passé</strong></td>
-                            <td colspan="2"><strong>02:30</strong></td>
-                        </tr>
-                    </tfoot>
                 </table>
-                <div class="champ-formulaire" style="margin-top: 20px;">
-                    <label for="ajout-temps">Ajouter du temps (Collaborateur)</label>
-                    <div style="display: flex; gap: 10px;">
-                        <input type="number" placeholder="Minutes" id="ajout-temps">
+
+                <!-- Formulaire d'ajout de temps (Rôle Collaborateur) [3] -->
+                <div class="champ-formulaire" style="margin-top: 25px; border-top: 1px solid var(--gris-bordure); padding-top: 20px;">
+                    <label>Ajouter du temps passé</label>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <input type="number" placeholder="Minutes" style="flex: 1; min-width: 100px;">
+                        <input type="text" placeholder="Note d'intervention" style="flex: 2; min-width: 200px;">
                         <button type="button">Ajouter</button>
                     </div>
                 </div>
             </section>
+
+            <!-- 4. Validation Client : Pour les tickets facturables [4] -->
+            <section class="cadre" style="border: 2px solid #059669;">
+                <h3>Validation de la facturation</h3>
+                <p>Ce ticket est marqué comme <strong>facturable</strong> car il est hors périmètre du contrat annuel actuel. En tant que client, vous devez valider le temps passé (02:30) pour permettre la facturation.</p>
+                <div class="actions-client">
+                    <button class="bouton-valider">Accepter la facturation</button>
+                    <button class="bouton-refuser">Refuser / Contester</button>
+                </div>
+            </section>
         </div>
     </main>
-    <footer><p>&copy; 2026 Projet TP FIL ROUGE - Collou Christian-Didier KOUAKOU | ESIEA</p></footer>
+
+    <footer>
+        <p>&copy; 2026 Projet TP FIL ROUGE - Collou Christian-Didier KOUAKOU | ESIEA</p>
+    </footer>
 </body>
 </html>
