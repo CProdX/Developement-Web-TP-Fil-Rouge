@@ -1,12 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project details</title>
+    <title>Détail Projet - ESIEA</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <header>
+    <div class="conteneur-header">
+        <h1>GESTION DU PROJET</h1>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="projects.html">Retour aux projets</a>
+            <a href="index.html">Déconnexion</a>
+        </nav>
+    </div>
+    </header>
+
+    <main>
+        <div class="conteneur-detail">
+            <section class="cadre">
+                <h2>TP Fil Rouge (Web)</h2>
+                <div class="info-metier">
+                    <div>
+                        <p><strong>Client :</strong> ESIEA Corp</p>
+                        <p><strong>Responsable :</strong> C-D. Kouakou</p>
+                    </div>
+                    <div>
+                        <p><strong>Contrat :</strong> Annuel (50h incluses)</p>
+                        <p><strong>Taux supplémentaire :</strong> 75€ / h</p>
+                    </div>
+                </div>
+                
+                <div class="section-stats">
+                    <div class="carte-stat">
+                        <h4>Heures Incluses</h4>
+                        <p>50h</p>
+                    </div>
+                    <div class="carte-stat">
+                        <h4>Temps Consommé</h4>
+                        <p>42h</p>
+                    </div>
+                    <div class="carte-stat">
+                        <h4>Heures Restantes</h4>
+                        <p style="color: #059669;">8h</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cadre">
+                <h3>Collaborateurs Assignés</h3>
+                <ul>
+                    <li>Christian-Didier KOUAKOU</li>
+                    <li>A. Nollet</li>
+                </ul>
+            </section>
+            
+            <section class="cadre">
+                <h3>Tickets associés</h3>
+                <table class="tableau-liste">
+                    <thead>
+                        <tr>
+                            <th>Ticket</th>
+                            <th>Collaborateur</th>
+                            <th>Priorité</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#8825 - Erreur GitLab SSH</td>
+                            <td>C-D. Kouakou</td>
+                            <td><span class="badge priorite-critique">Critique</span></td>
+                            <td><a href="ticket-detail.html">Détails</a></td>
+                        </tr>
+                
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Projet TP FIL ROUGE - Collou Christian-Didier KOUAKOU | ESIEA</p>
+    </footer>
 </body>
 </html>
