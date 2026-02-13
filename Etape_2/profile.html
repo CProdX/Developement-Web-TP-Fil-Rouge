@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon Profil - ESIEA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="conteneur-header">
+            <h1>MON PROFIL</h1>
+            <nav>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="profile.html" aria-current="page">Profil</a>
+                <a href="settings.html">Paramètres</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="cadre largeur-formulaire">
+            <h2 class="titre-formulaire">Informations personnelles</h2>
+            <form action="#">
+                <div class="champ-formulaire">
+                    <label>Nom :</label>
+                    <input type="text" value="Christian-Didier KOUAKOU">
+                </div>
+                <div class="champ-formulaire">
+                    <label>Email :</label>
+                    <input type="email" value="c-d.kouakou@et.esiea.fr" disabled>
+                </div>
+                <div class="champ-formulaire">
+                    <label>Rôle actuel :</label>
+                    <p>Collaborateur / Administrateur</p>
+                </div>
+                <button type="submit" class="bouton-large">Mettre à jour le profil</button>
+            </form>
+        </div>
+    </main>
+    <footer><p>&copy; 2026 Projet TP FIL ROUGE - Collou Christian-Didier KOUAKOU | ESIEA</p></footer>
+    <script src="app.js"></script>
+</body>
+</html>
