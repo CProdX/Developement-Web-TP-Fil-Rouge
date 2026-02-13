@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Créer un Ticket</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="conteneur-header">
+            <h1>OUVRIR UN TICKET</h1>
+            <nav><a href="tickets.html">Annuler</a></nav>
+        </div>
+    </header>
+    <main>
+        <div class="cadre largeur-formulaire">
+            <h2 class="titre-formulaire">Nouvelle Demande</h2>
+            <form action="tickets.html">
+                <div class="champ-formulaire">
+                    <label for="titre">Sujet du ticket</label>
+                    <input type="text" id="titre" required>
+                </div>
+                <div class="champ-formulaire">
+                    <label for="type">Type de prestation</label>
+                    <select id="type">
+                        <option value="inclus">Inclus dans le contrat</option>
+                        <option value="facturable">Hors contrat (Facturable)</option>
+                    </select>
+                </div>
+                <div class="champ-formulaire">
+                    <label for="projet-select">Projet associé</label>
+                    <select id="projet-select" required>
+                        <option value="">Sélectionner un projet</option>
+                        <option>ESIEA Corp - TP Fil Rouge</option>
+                        <option>Laval Services - Base SQL</option>
+                    </select>
+                </div>
+                <div class="champ-formulaire">
+                    <label for="desc">Description détaillée</label>
+                    <textarea id="desc" rows="5"></textarea>
+                </div>
+                
+                <button type="submit" class="bouton-large">Soumettre</button>
+            </form>
+        </div>
+    </main>
+    <footer><p>&copy; 2026 Projet TP FIL ROUGE - Collou Christian-Didier KOUAKOU | ESIEA</p></footer>
+    
+    <script src="app.js"></script>
+</body>
+</html>

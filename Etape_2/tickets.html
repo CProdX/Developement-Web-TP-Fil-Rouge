@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Tickets - ESIEA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="conteneur-header">
+            <h1>GESTION DES TICKETS</h1>
+            <nav>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="projects.html">Projets</a>
+                <a href="tickets.html" aria-current="page">Tickets</a>
+                <a href="ticket-create.html">+ Nouveau Ticket</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="cadre">
+            <div class="barre-filtres">
+                <div class="filtre-groupe">
+                    <label for="recherche">Rechercher</label>
+                    <input type="text" id="recherche" placeholder="ID ou Sujet...">
+                </div>
+                <button type="button" class="bouton-rechercher">Filtrer</button>
+            </div>
+
+            <table class="tableau-liste">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Sujet</th>
+                        <th>Type</th>
+                        <th>Temps</th>
+                        <th>Priorité</th>
+                        <th>Statut</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>#8825</td><td>Erreur GitLab SSH</td><td>Inclus</td><td>02:30</td><td class="priorite-critique">Critique</td><td>À valider</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8826</td><td>Optimisation SQL Laval</td><td style="color:#059669;">Facturable</td><td>04:15</td><td>Moyenne</td><td>En cours</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8827</td><td>Mise à jour JUnit 5</td><td>Inclus</td><td>01:00</td><td>Basse</td><td>Nouveau</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8828</td><td>Bug responsive Sidebar</td><td>Inclus</td><td>03:45</td><td class="priorite-critique">Critique</td><td>En cours</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8829</td><td>Audit Cyber Lab</td><td style="color:#059669;">Facturable</td><td>12:00</td><td class="priorite-critique">Critique</td><td>En cours</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8830</td><td>Fix CSS Header</td><td>Inclus</td><td>00:45</td><td>Basse</td><td>À valider</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8831</td><td>Script Python TOEIC</td><td style="color:#059669;">Facturable</td><td>06:30</td><td>Moyenne</td><td>À valider</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8832</td><td>Migration Maven</td><td>Inclus</td><td>02:15</td><td>Moyenne</td><td>À valider</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+                    <tr><td>#8833</td><td>Sécurité API Rest</td><td style="color:#059669;">Facturable</td><td>08:20</td><td class="priorite-critique">Critique</td><td>À valider</td><td><a href="ticket-detail.html">Détail</a></td></tr>
+
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer><p>&copy; 2026 Projet TP FIL ROUGE - Collou Christian-Didier KOUAKOU | ESIEA</p></footer>
+    
+    <script src="app.js"></script>
+</body>
+</html>
