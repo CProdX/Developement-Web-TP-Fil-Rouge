@@ -4,8 +4,9 @@
  * Affiche un message d'erreur ou de succès
  * @param {string} message - Le message à afficher
  * @param {string} type - Type de message ('error' ou 'success')
+ * @param {{position?: string}} [options] - Options d'affichage
  */
-function afficherMessage(message, type) {
+function afficherMessage(message, type, options = {}) {
     // Supprimer l'ancien message s'il existe
     const ancienMessage = document.querySelector('.message-alerte');
     if (ancienMessage) {
@@ -15,11 +16,27 @@ function afficherMessage(message, type) {
     // Créer le nouveau message
     const divMessage = document.createElement('div');
     divMessage.className = `message-alerte message-${type}`;
+
+    if (options.position === 'bottom-center') {
+        divMessage.classList.add('message-bas-centre');
+
+        // Fallback inline pour garantir le rendu meme si le CSS est en cache.
+        divMessage.style.position = 'fixed';
+        divMessage.style.left = '50%';
+        divMessage.style.bottom = '20px';
+        divMessage.style.transform = 'translateX(-50%)';
+        divMessage.style.margin = '0';
+        divMessage.style.width = 'min(90vw, 520px)';
+        divMessage.style.zIndex = '9999';
+        divMessage.style.animation = 'none';
+    }
+
     divMessage.textContent = message;
 
-    // Ajouter le message avant le premier élément du main
     const main = document.querySelector('main');
-    if (main && main.firstChild) {
+    if (options.position === 'bottom-center') {
+        document.body.appendChild(divMessage);
+    } else if (main && main.firstChild) {
         main.insertBefore(divMessage, main.firstChild);
     }
 
@@ -173,12 +190,12 @@ function initConnexion() {
 
         // Si tout est valide, afficher un message de succès et rediriger
         if (estValide) {
-            afficherMessage('Connexion réussie ! Redirection...', 'success');
+            afficherMessage('Connexion réussie ! Redirection...', 'success', { position: 'bottom-center' });
             setTimeout(() => {
                 window.location.href = form.action || 'dashboard.html';
             }, 1500);
         } else {
-            afficherMessage('Veuillez corriger les erreurs du formulaire', 'error');
+            afficherMessage('Veuillez corriger les erreurs du formulaire', 'error', { position: 'bottom-center' });
         }
     });
 }
@@ -456,12 +473,26 @@ function initCreationTicket() {
 // SYSTÈME DE FILTRAGE DES TICKETS
 
 /**
+ * Normalise un texte pour des comparaisons de filtres robustes
+ * (casse, accents et espaces).
+ * @param {string} texte
+ * @returns {string}
+ */
+function normaliserTexte(texte) {
+    return (texte || '')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+}
+
+/**
  * Initialise le système de filtrage des tickets
  */
 function initFiltresTickets() {
     const recherche = document.getElementById('recherche');
     const tableau = document.querySelector('.tableau-liste tbody');
-    
+
     if (!tableau) return;
 
     // Créer les boutons de filtrage
@@ -469,97 +500,80 @@ function initFiltresTickets() {
 
     // Fonction de filtrage
     function filtrerTickets() {
-        const termesRecherche = recherche ? recherche.value.toLowerCase() : '';
+        const termesRecherche = normaliserTexte(recherche ? recherche.value : '');
         const filtreType = document.querySelector('.filtre-type.actif');
         const filtreStatut = document.querySelector('.filtre-statut.actif');
         const filtrePriorite = document.querySelector('.filtre-priorite.actif');
 
         const lignes = tableau.querySelectorAll('tr');
-        
-        lignes.forEach(ligne => {
-            const id = ligne.cells[0].textContent.toLowerCase();
-            const sujet = ligne.cells[1].textContent.toLowerCase();
-            const type = ligne.cells[2].textContent.trim();
-            const statut = ligne.cells[5].textContent.trim();
-            const priorite = ligne.cells[4].textContent.trim();
 
-            // Vérifier la recherche
-            const correspondRecherche = !termesRecherche || 
-                id.includes(termesRecherche) || 
+        lignes.forEach(ligne => {
+            const id = normaliserTexte(ligne.cells[0].textContent);
+            const sujet = normaliserTexte(ligne.cells[1].textContent);
+            const type = normaliserTexte(ligne.cells[2].textContent);
+            const priorite = normaliserTexte(ligne.cells[4].textContent);
+            const statut = normaliserTexte(ligne.cells[5].textContent);
+
+            const correspondRecherche = !termesRecherche ||
+                id.includes(termesRecherche) ||
                 sujet.includes(termesRecherche);
 
-            // Vérifier le filtre de type
             let correspondType = true;
             if (filtreType) {
-                const typeFiltre = filtreType.dataset.type;
-                if (typeFiltre === 'inclus') {
-                    correspondType = type === 'Inclus';
-                } else if (typeFiltre === 'facturable') {
-                    correspondType = type === 'Facturable';
-                }
+                const typeFiltre = normaliserTexte(filtreType.dataset.type);
+                correspondType = typeFiltre === 'tous' || type === typeFiltre;
             }
 
-            // Vérifier le filtre de statut
             let correspondStatut = true;
             if (filtreStatut) {
-                const statutFiltre = filtreStatut.dataset.statut;
+                const statutFiltre = normaliserTexte(filtreStatut.dataset.statut);
                 correspondStatut = statut === statutFiltre;
             }
 
-            // Vérifier le filtre de priorité
             let correspondPriorite = true;
             if (filtrePriorite) {
-                const prioriteFiltre = filtrePriorite.dataset.priorite;
+                const prioriteFiltre = normaliserTexte(filtrePriorite.dataset.priorite);
                 correspondPriorite = priorite === prioriteFiltre;
             }
 
-            // Afficher ou masquer la ligne
-            if (correspondRecherche && correspondType && correspondStatut && correspondPriorite) {
-                ligne.style.display = '';
-            } else {
-                ligne.style.display = 'none';
-            }
+            ligne.style.display = (correspondRecherche && correspondType && correspondStatut && correspondPriorite)
+                ? ''
+                : 'none';
         });
 
-        // Afficher un message si aucun résultat
-        afficherMessageAucunResultat(lignes);
+        afficherMessageAucunResultat(lignes, 'Aucun ticket ne correspond a vos criteres de recherche');
     }
 
-    // Écouter la saisie dans la recherche
     if (recherche) {
         recherche.addEventListener('input', filtrerTickets);
     }
 
-    // Écouter le clic sur le bouton Filtrer
     const boutonFiltrer = document.querySelector('.bouton-rechercher');
     if (boutonFiltrer) {
         boutonFiltrer.addEventListener('click', filtrerTickets);
     }
 
-    // Écouter les clics sur les boutons de filtre
     document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('filtre-type') || 
-            e.target.classList.contains('filtre-statut') ||
-            e.target.classList.contains('filtre-priorite')) {
-            
-            // Retirer la classe actif des autres filtres du même groupe
-            const groupe = e.target.classList.contains('filtre-type') ? 'filtre-type' :
-                          e.target.classList.contains('filtre-statut') ? 'filtre-statut' :
-                          'filtre-priorite';
-            
-            document.querySelectorAll(`.${groupe}`).forEach(btn => {
-                btn.classList.remove('actif');
-            });
+        const bouton = e.target.closest('button.filtre-type, button.filtre-statut, button.filtre-priorite');
+        if (!bouton) return;
 
-            // Activer/désactiver le filtre cliqué
-            if (e.target.classList.contains('actif')) {
-                e.target.classList.remove('actif');
-            } else {
-                e.target.classList.add('actif');
-            }
+        const groupe = bouton.classList.contains('filtre-type')
+            ? 'filtre-type'
+            : bouton.classList.contains('filtre-statut')
+                ? 'filtre-statut'
+                : 'filtre-priorite';
 
-            filtrerTickets();
+        const etaitActif = bouton.classList.contains('actif');
+        const estTous = normaliserTexte(bouton.dataset.type) === 'tous';
+
+        document.querySelectorAll(`.${groupe}`).forEach(btn => btn.classList.remove('actif'));
+
+        // Un second clic desactive le filtre; le bouton "Tous" sert aussi de reset.
+        if (!etaitActif && !estTous) {
+            bouton.classList.add('actif');
         }
+
+        filtrerTickets();
     });
 }
 
@@ -613,14 +627,59 @@ function creerBoutonsFiltres() {
 }
 
 /**
- * Affiche un message si aucun ticket ne correspond aux filtres
- * @param {NodeList} lignes - Les lignes du tableau
+ * Initialise les filtres de la page projets
  */
-function afficherMessageAucunResultat(lignes) {
+function initFiltresProjets() {
+    const recherche = document.getElementById('recherche');
+    const filtreStatut = document.getElementById('filtre-statut');
+    const boutonFiltrer = document.querySelector('.bouton-rechercher');
+    const tableau = document.querySelector('.tableau-liste tbody');
+
+    if (!tableau) return;
+
+    function filtrerProjets() {
+        const terme = normaliserTexte(recherche ? recherche.value : '');
+        const statutChoisi = filtreStatut ? normaliserTexte(filtreStatut.value) : 'tous';
+        const lignes = tableau.querySelectorAll('tr');
+
+        lignes.forEach(ligne => {
+            const texteProjet = normaliserTexte(ligne.cells[0].textContent);
+            const statutProjet = normaliserTexte(ligne.cells[4].textContent);
+
+            const correspondRecherche = !terme || texteProjet.includes(terme);
+
+            let correspondStatut = true;
+            if (statutChoisi === 'ouvert') {
+                correspondStatut = statutProjet.includes('ouvert');
+            } else if (statutChoisi === 'en-cours') {
+                correspondStatut = statutProjet.includes('en cours');
+            } else if (statutChoisi === 'termine') {
+                // Supporte "Termine" et "Ferme" selon les donnees de la table.
+                correspondStatut = statutProjet.includes('termine') || statutProjet.includes('ferme');
+            } else if (statutChoisi === 'ferme') {
+                correspondStatut = statutProjet.includes('ferme');
+            }
+
+            ligne.style.display = (correspondRecherche && correspondStatut) ? '' : 'none';
+        });
+
+        afficherMessageAucunResultat(lignes, 'Aucun projet ne correspond a vos criteres de recherche');
+    }
+
+    if (recherche) recherche.addEventListener('input', filtrerProjets);
+    if (filtreStatut) filtreStatut.addEventListener('change', filtrerProjets);
+    if (boutonFiltrer) boutonFiltrer.addEventListener('click', filtrerProjets);
+}
+
+/**
+ * Affiche un message si aucun élément ne correspond aux filtres
+ * @param {NodeList} lignes - Les lignes du tableau
+ * @param {string} message - Le message a afficher
+ */
+function afficherMessageAucunResultat(lignes, message) {
     const tableau = document.querySelector('.tableau-liste');
     if (!tableau) return;
 
-    // Compter les lignes visibles
     let nombreVisibles = 0;
     lignes.forEach(ligne => {
         if (ligne.style.display !== 'none') {
@@ -628,17 +687,15 @@ function afficherMessageAucunResultat(lignes) {
         }
     });
 
-    // Supprimer l'ancien message
     const ancienMessage = document.querySelector('.message-aucun-resultat');
     if (ancienMessage) {
         ancienMessage.remove();
     }
 
-    // Afficher le message si aucun résultat
     if (nombreVisibles === 0) {
         const messageDiv = document.createElement('div');
         messageDiv.className = 'message-aucun-resultat';
-        messageDiv.textContent = 'Aucun ticket ne correspond à vos critères de recherche';
+        messageDiv.textContent = message;
         tableau.parentElement.appendChild(messageDiv);
     }
 }
@@ -668,5 +725,9 @@ document.addEventListener('DOMContentLoaded', function() {
     else if (page === 'tickets.html') {
         console.log('Initialisation des filtres de tickets');
         initFiltresTickets();
+    }
+    else if (page === 'projects.html') {
+        console.log('Initialisation des filtres de projets');
+        initFiltresProjets();
     }
 });

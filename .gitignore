@@ -1,0 +1,6 @@
+.idea/
+*.iml
+*.log
+.DS_Store
+Thumbs.db
+Etape_3/data/

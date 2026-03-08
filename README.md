@@ -4,6 +4,24 @@ Bienvenue dans mon environnement de développement dédié au projet de Ticketin
 
 Le projet est développé de manière progressive et structurée, en respectant les bonnes pratiques du développement web front-end.
 
+---
+
+## 🚀 Lancement de l'application (Étape 3)
+
+```bash
+cd Etape_3/public
+php -S localhost:8001
+```
+
+Puis ouvrir : **http://localhost:8001**
+
+### 🔐 Comptes de test
+- `admin@et.esiea.fr` / `admin123`
+- `collab@et.esiea.fr` / `collab123`
+- `client@et.esiea.fr` / `client123`
+
+---
+
 ## Etape 1
 
 ### 1. Analyse et cadrage
