@@ -103,7 +103,7 @@ renderHeader('Tickets - Etape 4 PHP', 'GESTION DES TICKETS', 'tickets');
                             |
                             <a href="<?= e(url('ticket-edit.php?id=' . (int) $ticket['id'])) ?>">Modifier</a>
                             |
-                            <form method="post" action="<?= e(url('actions/tickets/delete_ticket.php')) ?>" style="display: inline;" onsubmit="return confirm('Etes-vous sur de vouloir supprimer ce ticket ?');">
+                            <form method="post" action="<?= e(url('delete_ticket_action.php')) ?>" style="display: inline;" onsubmit="return confirm('Etes-vous sur de vouloir supprimer ce ticket ?');">
                                 <input type="hidden" name="id" value="<?= e((string) $ticket['id']) ?>">
                                 <button type="submit" style="color: red; background: none; border: none; cursor: pointer; text-decoration: underline; padding: 0; font-size: inherit;">Supprimer</button>
                             </form>

@@ -29,7 +29,7 @@ renderHeader('Profil', 'MON PROFIL', 'profile');
             <div class="message-alerte message-error"><?= e($error) ?></div>
         <?php endif; ?>
 
-        <form method="post" action="<?= e(url('actions/user/update_profile.php')) ?>">
+        <form method="post" action="<?= e(url('update_profile_action.php')) ?>">
             <div class="champ-formulaire">
                 <label for="name">Nom complet</label>
                 <input id="name" name="name" type="text" value="<?= e((string) $user['name']) ?>" required>

@@ -19,7 +19,7 @@ renderHeader('Mot de passe oublie', 'MOT DE PASSE OUBLIE');
             <div class="message-alerte message-error"><?= e($error) ?></div>
         <?php endif; ?>
 
-        <form method="post" action="<?= e(url('actions/auth/forgot_password.php')) ?>">
+        <form method="post" action="<?= e(url('forgot_password_action.php')) ?>">
             <div class="champ-formulaire">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="nom@et.esiea.fr" required>

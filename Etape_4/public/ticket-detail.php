@@ -48,7 +48,7 @@ renderHeader('Detail ticket - Etape 4 PHP', 'DETAIL TICKET', 'tickets');
             <?php if ($project): ?>
                 <a class="badge" href="<?= e(url('project-detail.php?id=' . (int) $project['id'])) ?>">Voir projet</a>
             <?php endif; ?>
-            <form method="post" action="<?= e(url('actions/tickets/delete_ticket.php')) ?>" style="display: inline;" onsubmit="return confirm('Etes-vous sur de vouloir supprimer ce ticket ?');">
+            <form method="post" action="<?= e(url('delete_ticket_action.php')) ?>" style="display: inline;" onsubmit="return confirm('Etes-vous sur de vouloir supprimer ce ticket ?');">
                 <input type="hidden" name="id" value="<?= e((string) $ticket['id']) ?>">
                 <button type="submit" class="badge" style="color: white; background-color: #d9534f; border: none; cursor: pointer;">Supprimer</button>
             </form>

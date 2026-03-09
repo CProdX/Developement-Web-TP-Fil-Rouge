@@ -25,7 +25,7 @@ function renderHeader($title, $heading, $activePage = '')
                     <a id="nav-new-ticket" href="<?= e(url('ticket-create.php')) ?>" style="display:none;">+ Nouveau ticket</a>
                     <a href="<?= e(url('profile.php')) ?>" <?= $activePage === 'profile' ? 'aria-current="page"' : '' ?>>Profil</a>
                     <a href="<?= e(url('settings.php')) ?>" <?= $activePage === 'settings' ? 'aria-current="page"' : '' ?>>Parametres</a>
-                    <a href="<?= e(url('actions/auth/logout.php')) ?>" class="Deconnexion">Deconnexion</a>
+                    <a href="<?= e(url('logout_action.php')) ?>" class="Deconnexion">Deconnexion</a>
                 <?php else: ?>
                     <a href="<?= e(url('index.php')) ?>" aria-current="page">Connexion</a>
                 <?php endif; ?>

@@ -24,7 +24,7 @@ renderHeader('Connexion - Etape 3 PHP', 'ESIEA TICKETING');
             <div class="message-alerte message-success message-bas-centre"><?= e($success) ?></div>
         <?php endif; ?>
 
-        <form action="<?= e(url('actions/auth/login.php')) ?>" method="post">
+        <form action="<?= e(url('login_action.php')) ?>" method="post">
             <div class="champ-formulaire">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="nom@et.esiea.fr" required>

@@ -25,7 +25,7 @@ renderHeader('Modifier ticket - Etape 4 PHP', 'MODIFIER UN TICKET', 'tickets');
             <div class="message-alerte message-error"><?= e($error) ?></div>
         <?php endif; ?>
 
-        <form action="<?= e(url('actions/tickets/update_ticket.php')) ?>" method="post">
+        <form action="<?= e(url('update_ticket_action.php')) ?>" method="post">
             <input type="hidden" name="id" value="<?= e((string) $ticket['id']) ?>">
 
             <div class="champ-formulaire">

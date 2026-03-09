@@ -92,7 +92,7 @@ renderHeader('Projets - Etape 4 PHP', 'GESTION DES PROJETS', 'projects');
                         <td>
                             <a href="<?= e(url('project-detail.php?id=' . (int) $project['id'])) ?>">Detail</a>
                             |
-                            <form method="post" action="<?= e(url('actions/projects/delete_project.php')) ?>" style="display: inline;" onsubmit="return confirm('Etes-vous sur de vouloir supprimer ce projet et tous ses tickets ?');">
+                            <form method="post" action="<?= e(url('delete_project_action.php')) ?>" style="display: inline;" onsubmit="return confirm('Etes-vous sur de vouloir supprimer ce projet et tous ses tickets ?');">
                                 <input type="hidden" name="id" value="<?= e((string) $project['id']) ?>">
                                 <button type="submit" style="color: red; background: none; border: none; cursor: pointer; text-decoration: underline; padding: 0; font-size: inherit;">Supprimer</button>
                             </form>

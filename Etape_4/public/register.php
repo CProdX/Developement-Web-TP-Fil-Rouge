@@ -19,7 +19,7 @@ renderHeader('Inscription', 'INSCRIPTION');
             <div class="message-alerte message-error"><?= e($error) ?></div>
         <?php endif; ?>
 
-        <form method="post" action="<?= e(url('actions/auth/register.php')) ?>">
+        <form method="post" action="<?= e(url('register_action.php')) ?>">
             <div class="champ-formulaire">
                 <label for="name">Nom complet</label>
                 <input type="text" id="name" name="name" required>

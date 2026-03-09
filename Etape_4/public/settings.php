@@ -34,7 +34,7 @@ renderHeader('Parametres', 'PARAMETRES', 'settings');
             <div class="message-alerte message-error"><?= e($error) ?></div>
         <?php endif; ?>
 
-        <form method="post" action="<?= e(url('actions/user/update_settings.php')) ?>">
+        <form method="post" action="<?= e(url('update_settings_action.php')) ?>">
             <div class="champ-formulaire">
                 <label for="lang">Langue</label>
                 <select id="lang" name="lang">

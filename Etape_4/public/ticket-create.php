@@ -20,7 +20,7 @@ renderHeader('Creer un ticket - Etape 4 PHP', 'OUVRIR UN TICKET', 'tickets');
             <div class="message-alerte message-error"><?= e($error) ?></div>
         <?php endif; ?>
 
-        <form action="<?= e(url('actions/tickets/create_ticket.php')) ?>" method="post">
+        <form action="<?= e(url('create_ticket_action.php')) ?>" method="post">
             <div class="champ-formulaire">
                 <label for="titre">Sujet du ticket</label>
                 <input type="text" id="titre" name="titre" value="<?= e(isset($formData['titre']) ? $formData['titre'] : '') ?>" required>
