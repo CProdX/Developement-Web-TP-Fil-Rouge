@@ -4,6 +4,10 @@
 <div class="cadre">
     <h2 class="titre-formulaire">DETAIL PROJET #{{ $project->id }}</h2>
 
+    <p>
+        <a href="{{ route('projects.edit', ['id' => $project->id]) }}">Modifier ce projet</a>
+    </p>
+
     <div class="info-metier">
         <p><strong>Nom:</strong> {{ $project->name }}</p>
         <p><strong>Client:</strong> {{ $client?->name ?? 'N/A' }}</p>

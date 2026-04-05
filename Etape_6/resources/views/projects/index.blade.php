@@ -8,10 +8,10 @@
             <input type="text" id="recherche" name="q" value="{{ request('q') }}" placeholder="Nom projet ou client...">
         </div>
         <div class="filtre-groupe">
-            <label for="statut">Statut</label>
-            <select id="statut" name="status">
+            <label for="status">Statut</label>
+            <select id="status" name="status">
                 <option value="">Tous</option>
-                @foreach (['Actif', 'En cours', 'Planifie', 'Termine'] as $status)
+                @foreach (['Planifie', 'En cours', 'Termine'] as $status)
                     <option value="{{ $status }}" @selected(request('status') === $status)>{{ $status }}</option>
                 @endforeach
             </select>
@@ -48,9 +48,12 @@
                 <td>{{ $project->status }}</td>
                 <td>{{ number_format((float) ($project->hours_spent ?? 0), 2, ',', ' ') }} h</td>
                 <td>
-                    <a href="{{ route('projects.show', ['id' => $project->id]) }}">Detail</a>
-                    |
-                    <form method="POST" action="{{ route('projects.destroy', ['id' => $project->id]) }}" style="display:inline;" onsubmit="return confirm('Supprimer ce projet et ses tickets ?');">
+                    <div>
+                        <a href="{{ route('projects.show', ['id' => $project->id]) }}">Detail</a>
+                        |
+                        <a href="{{ route('projects.edit', ['id' => $project->id]) }}">Modifier</a>
+                    </div>
+                    <form method="POST" action="{{ route('projects.destroy', ['id' => $project->id]) }}" style="margin-top:6px;" onsubmit="return confirm('Supprimer ce projet et ses tickets ?');">
                         @csrf
                         @method('DELETE')
                         <button type="submit" style="background:none;border:none;color:#dc2626;cursor:pointer;padding:0;">Supprimer</button>

@@ -90,6 +90,33 @@ class ProjectController extends Controller
         ]);
     }
 
+    public function edit(int $id): View
+    {
+        $project = Project::query()->findOrFail($id);
+
+        return view('projects.edit', [
+            'project' => $project,
+            'clients' => Client::query()->orderBy('name')->get(),
+            'contracts' => Contract::query()->with('client')->orderBy('label')->get(),
+        ]);
+    }
+
+    public function update(Request $request, int $id): RedirectResponse
+    {
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:190'],
+            'client_id' => ['required', 'integer', 'exists:clients,id'],
+            'contract_id' => ['nullable', 'integer', 'exists:contrats,id'],
+            'status' => ['required', 'string', 'max:100'],
+            'description' => ['nullable', 'string'],
+        ]);
+
+        $project = Project::query()->findOrFail($id);
+        $project->update($validated);
+
+        return to_route('projects.show', ['id' => $project->id])->with('success', 'Projet modifie avec succes.');
+    }
+
     public function destroy(int $id): RedirectResponse
     {
         $project = Project::query()->findOrFail($id);
