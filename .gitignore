@@ -10,12 +10,4 @@ Etape_4/database/*.sqlite
 # Fichiers contenant des données sensibles (mots de passe de test)
 Etape_4/data/users.php
 
-# Ne pas pousser les fichiers Markdown
-*.md
-**/*.md
 
-.env
-vendor/
-.idea/
-# Added by ggshield
-.cache_ggshield

@@ -8,7 +8,7 @@
         <p><strong>Sujet:</strong> {{ $ticket->title }}</p>
         <p><strong>Projet:</strong> {{ $project?->name ?? 'N/A' }}</p>
         <p><strong>Statut:</strong> {{ $ticket->status }}</p>
-        <p><strong>Priorite:</strong> {{ $ticket->priority === 'Critique' ? 'Haute' : $ticket->priority }}</p>
+        <p><strong>Priorite:</strong> {{ $ticket->priority }}</p>
         <p><strong>Type:</strong> {{ ucfirst($ticket->billing_type) }}</p>
         <p><strong>Temps passe:</strong> {{ number_format($ticket->hours_spent, 2, ',', ' ') }} h</p>
     </div>
@@ -25,8 +25,8 @@
             <label for="user_id">Collaborateur</label>
             <select id="user_id" name="user_id">
                 <option value="">Non assigne</option>
-                @foreach ($users as $user)
-                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                @foreach ($users as $userId => $userName)
+                    <option value="{{ $userId }}">{{ $userName }}</option>
                 @endforeach
             </select>
         </div>

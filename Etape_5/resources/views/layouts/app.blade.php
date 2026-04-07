@@ -36,7 +36,7 @@ $authOnlyNav = request()->routeIs('login') || request()->routeIs('register') || 
                 <a href="{{ route('settings.show') }}" @if($activePage === 'settings') aria-current="page" @endif>Parametres</a>
                 <form method="POST" action="{{ route('logout') }}" style="display:inline;">
                     @csrf
-                    <button type="submit" style="color:#dc2626; background:none; border:none; cursor:pointer; font-weight:bold; padding:8px 15px;">Deconnexion</button>
+                    <button type="submit" style="color:#dc2626; background:none; border:none; cursor:pointer; font-weight:bold; padding:8px 15px; font-size:1em; text-decoration:none;">Deconnexion</button>
                 </form>
             @endif
         </nav>

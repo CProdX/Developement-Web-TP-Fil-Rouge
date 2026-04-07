@@ -33,7 +33,7 @@
 
         <div class="champ-formulaire">
             <label for="priority">Priorite</label>
-            @php($priorityValue = old('priority', $ticket->priority === 'Critique' ? 'Haute' : $ticket->priority))
+            @php($priorityValue = old('priority', $ticket->priority))
             <select id="priority" name="priority" required>
                 <option value="Basse" @selected($priorityValue === 'Basse')>Basse</option>
                 <option value="Moyenne" @selected($priorityValue === 'Moyenne')>Moyenne</option>

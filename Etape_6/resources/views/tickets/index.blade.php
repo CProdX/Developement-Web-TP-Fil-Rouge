@@ -65,15 +65,16 @@
                 <td>{{ $ticket->title }}</td>
                 <td>{{ $ticket->project?->name ?? 'N/A' }}</td>
                 <td>{{ ucfirst($ticket->billing_type) }}</td>
-                <td>{{ $ticket->priority === 'Critique' ? 'Haute' : $ticket->priority }}</td>
+                <td>{{ $ticket->priority }}</td>
                 <td>{{ $ticket->status }}</td>
                 <td>{{ number_format($ticket->hours_spent, 2, ',', ' ') }} h</td>
                 <td>
-                    <a href="{{ route('tickets.show', ['id' => $ticket->id]) }}">Detail</a>
-                    |
-                    <a href="{{ route('tickets.edit', ['id' => $ticket->id]) }}">Modifier</a>
-                    |
-                    <form method="POST" action="{{ route('tickets.destroy', ['id' => $ticket->id]) }}" style="display:inline;" onsubmit="return confirm('Supprimer ce ticket ?');">
+                    <div>
+                        <a href="{{ route('tickets.show', ['id' => $ticket->id]) }}">Detail</a>
+                        |
+                        <a href="{{ route('tickets.edit', ['id' => $ticket->id]) }}">Modifier</a>
+                    </div>
+                    <form method="POST" action="{{ route('tickets.destroy', ['id' => $ticket->id]) }}" style="margin-top:6px;" onsubmit="return confirm('Supprimer ce ticket ?');">
                         @csrf
                         @method('DELETE')
                         <button type="submit" style="background:none;border:none;color:#dc2626;cursor:pointer;padding:0;">Supprimer</button>

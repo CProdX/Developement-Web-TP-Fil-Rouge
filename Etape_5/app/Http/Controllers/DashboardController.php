@@ -2,26 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Support\FakeData;
+use App\Models\Project;
+use App\Models\Ticket;
 use Illuminate\View\View;
 
 class DashboardController extends Controller
 {
     public function index(): View
     {
-        $tickets = FakeData::tickets();
-        $projects = FakeData::projects();
+        $projectsCount = Project::query()->count();
+
+        $tickets = Ticket::query()->select(['type'])->get();
 
         $stats = [
-            'projects' => count($projects),
-            'tickets' => count($tickets),
-            'included' => count(array_filter($tickets, fn (array $t) => $t['billing_type'] === 'inclus')),
-            'billable' => count(array_filter($tickets, fn (array $t) => $t['billing_type'] === 'facturable')),
+            'projects' => $projectsCount,
+            'tickets' => $tickets->count(),
+            'included' => $tickets->where('type', 'Inclus')->count(),
+            'billable' => $tickets->where('type', 'Facturable')->count(),
         ];
 
         return view('dashboard', [
             'stats' => $stats,
-            'tickets' => $tickets,
         ]);
     }
 }

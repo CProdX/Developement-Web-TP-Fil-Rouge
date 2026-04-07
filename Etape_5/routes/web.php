@@ -26,6 +26,7 @@ Route::prefix('projects')->name('projects.')->group(function (): void {
     Route::get('/create', [ProjectController::class, 'create'])->name('create');
     Route::post('/', [ProjectController::class, 'store'])->name('store');
     Route::get('/{id}', [ProjectController::class, 'show'])->name('show');
+    Route::delete('/{id}', [ProjectController::class, 'destroy'])->name('destroy');
 });
 
 Route::prefix('tickets')->name('tickets.')->group(function (): void {
@@ -35,6 +36,7 @@ Route::prefix('tickets')->name('tickets.')->group(function (): void {
     Route::get('/{id}', [TicketController::class, 'show'])->name('show');
     Route::get('/{id}/edit', [TicketController::class, 'edit'])->name('edit');
     Route::put('/{id}', [TicketController::class, 'update'])->name('update');
+    Route::delete('/{id}', [TicketController::class, 'destroy'])->name('destroy');
 });
 
 Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');

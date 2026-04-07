@@ -19,7 +19,7 @@ renderHeader('Nouveau projet', 'CREER UN PROJET', 'projects');
             <div class="message-alerte message-error"><?= e($error) ?></div>
         <?php endif; ?>
 
-        <form method="post" action="<?= e(url('create_project_action.php')) ?>">
+        <form method="post" action="<?= e(url('actions/projects/create_project.php')) ?>">
             <div class="champ-formulaire">
                 <label for="nom">Nom du projet</label>
                 <input id="nom" name="nom" type="text" value="<?= e(isset($formData['nom']) ? $formData['nom'] : '') ?>" required>

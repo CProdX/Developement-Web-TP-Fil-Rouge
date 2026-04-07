@@ -44,7 +44,7 @@ class TicketController extends Controller
         ]);
     }
 
-    public function create(): View
+    public function create(Request $request): View
     {
         return view('tickets.create', [
             'projects' => Project::query()->orderBy('nom')->get(),
@@ -61,14 +61,14 @@ class TicketController extends Controller
             'description' => ['required', 'string'],
         ]);
 
-        Ticket::query()->create([
-            'title' => $validated['title'],
-            'project_id' => $validated['project_id'],
-            'priority' => $validated['priority'],
-            'billing_type' => $validated['billing_type'],
-            'description' => $validated['description'],
-            'status' => 'Ouvert',
-        ]);
+        $ticket = new Ticket();
+        $ticket->title = $validated['title'];
+        $ticket->project_id = $validated['project_id'];
+        $ticket->priority = $validated['priority'];
+        $ticket->billing_type = $validated['billing_type'];
+        $ticket->description = $validated['description'];
+        $ticket->status = 'Ouvert';
+        $ticket->save();
 
         return to_route('tickets.index')->with('success', 'Ticket cree avec succes.');
     }
@@ -82,7 +82,7 @@ class TicketController extends Controller
         return view('tickets.show', [
             'ticket' => $ticket,
             'project' => $ticket->project,
-            'users' => User::query()->orderBy('name')->get(),
+            'users' => User::query()->orderBy('name')->pluck('name', 'id')->all(),
         ]);
     }
 
@@ -108,7 +108,13 @@ class TicketController extends Controller
         ]);
 
         $ticket = Ticket::query()->findOrFail($id);
-        $ticket->update($validated);
+        $ticket->title = $validated['title'];
+        $ticket->project_id = $validated['project_id'];
+        $ticket->status = $validated['status'];
+        $ticket->priority = $validated['priority'];
+        $ticket->billing_type = $validated['billing_type'];
+        $ticket->description = $validated['description'];
+        $ticket->save();
 
         return to_route('tickets.show', ['id' => $ticket->id])->with('success', 'Ticket mis a jour.');
     }
